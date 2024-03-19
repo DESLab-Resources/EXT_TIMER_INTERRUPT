@@ -148,8 +148,8 @@ void TIM1Init()
 	// Bit 0 CEN: Counter enable
 	TIM1->CR1 |= (1 << 0); // Counter enabled
 
-	// Bit 0 UIF: Update interrupt flag
-	while(!(TIM1->SR & (1 << 0)));
+	// Clear UIF flag
+	TIM1->SR = 0;
 
 	// Bit 0 UIE: Update interrupt enable
 	TIM1->DIER |= (1 << 0); // Update interrupt enabled
